@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Basics - 15 MCQ Master Quiz</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2canvas for certificate download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #0a0e1a;
+            --panel-bg: #111827;
+            --accent-green: #22c55e;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --accent-yellow: #facc15;
+            --accent-red: #ef4444;
+            --text-main: #cbd5e1;
+            --text-bright: #f8fafc;
+            --border-glow: rgba(6, 182, 212, 0.25);
+            --card-gradient: linear-gradient(145deg, #111827, #0f172a);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Share Tech Mono', 'Cairo', monospace;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.06) 0%, transparent 40%),
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 20px 20px;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink), var(--accent-cyan)) 1;
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--text-bright);
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px var(--accent-cyan), 0 0 25px rgba(168, 85, 247, 0.3);
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--accent-green);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+        }
+
+        .academy-info {
+            margin-top: 12px;
+            padding: 10px 15px;
+            display: inline-block;
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            line-height: 1.7;
+            backdrop-filter: blur(4px);
+        }
+
+        .academy-info .academy-name {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(250, 204, 21, 0.4);
+        }
+
+        .academy-info .trainer-name {
+            color: var(--accent-pink);
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(236, 72, 153, 0.4);
+        }
+
+        .academy-info .phone {
+            color: var(--accent-green);
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: embed;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Cairo', 'Share Tech Mono', monospace;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 18px var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .quiz-card {
+            background: var(--card-gradient);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+            border-radius: 12px 0 0 12px;
+        }
+
+        body.rtl .quiz-card::before {
+            left: auto;
+            right: 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quiz-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.2), 0 4px 20px rgba(0,0,0,0.4);
+            transform: translateY(-2px);
+        }
+
+        .question-title {
+            color: var(--text-bright);
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .question-title i {
+            color: var(--accent-cyan);
+            margin-top: 4px;
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            background: #0a0f1c;
+            border: 1px solid #1e293b;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+        }
+
+        .option-label:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.06);
+            color: var(--text-bright);
+            transform: translateX(4px);
+        }
+
+        body.rtl .option-label:hover {
+            transform: translateX(-4px);
+        }
+
+        input[type="radio"] {
+            accent-color: var(--accent-cyan);
+            transform: scale(1.2);
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(6, 182, 212, 0.1));
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 12px 35px;
+            font-family: 'Cairo', 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 30px var(--accent-green);
+            transform: translateY(-3px);
+        }
+
+        #result-box {
+            display: none;
+            margin-top: 30px;
+            background: var(--card-gradient);
+            border: 2px solid var(--accent-cyan);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+        }
+
+        #result-box h2 {
+            color: var(--text-bright);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #score-display {
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+        }
+
+        .feedback-item {
+            text-align: left;
+            margin-top: 15px;
+            padding: 12px;
+            border-left: 4px solid;
+            background: #0a0f1c;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        body.rtl .feedback-item {
+            text-align: right;
+            border-left: none;
+            border-right: 4px solid;
+            border-radius: 6px 0 0 6px;
+        }
+
+        .correct-fb { border-color: var(--accent-green); color: var(--accent-green); }
+        .wrong-fb { border-color: var(--accent-red); color: var(--accent-red); }
+
+        /* Certificate Section */
+        .certificate-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #certificate {
+            width: 800px;
+            max-width: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #06b6d4, #a855f7, #ec4899, #facc15, #06b6d4) 1;
+            border-radius: 16px;
+            padding: 40px 30px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.3), inset 0 0 60px rgba(168, 85, 247, 0.05);
+            font-family: 'Cairo', sans-serif;
+            overflow: hidden;
+        }
+
+        #certificate::before {
+            content: "";
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        #certificate::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.06) 0%, transparent 30%);
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .cert-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 10px;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #06b6d4, #a855f7);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .cert-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .cert-subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .cert-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #06b6d4, #a855f7, #ec4899, transparent);
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-presented {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f8fafc;
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+            margin: 15px 0;
+            padding: 10px 30px;
+            display: inline-block;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.5);
+            position: relative;
+            z-index: 2;
+            min-width: 300px;
+        }
+
+        .cert-description {
+            font-size: 1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 15px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-score-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #22c55e 0deg,
+                #22c55e calc(var(--score-percent) * 3.6deg),
+                #1e293b calc(var(--score-percent) * 3.6deg),
+                #1e293b 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .cert-score-inner {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            background: #0f172a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .cert-score-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #22c55e;
+            line-height: 1;
+            text-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+        }
+
+        .cert-score-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .cert-evaluation {
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 10px 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-eval-excellent {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .cert-eval-good {
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .cert-eval-average {
+            background: rgba(250, 204, 21, 0.15);
+            color: #facc15;
+            border: 1px solid #facc15;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+        }
+
+        .cert-eval-poor {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+        }
+
+        .cert-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-signature {
+            text-align: center;
+            flex: 1;
+        }
+
+        .cert-signature .sig-line {
+            width: 150px;
+            height: 1px;
+            background: rgba(6, 182, 212, 0.5);
+            margin: 0 auto 8px;
+        }
+
+        .cert-signature .sig-name {
+            font-size: 0.9rem;
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        .cert-signature .sig-title {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 3px;
+        }
+
+        .cert-date {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-logo {
+            font-size: 1.8rem;
+            color: #06b6d4;
+            margin-bottom: 5px;
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+        }
+
+        .download-btn {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #06b6d4, #a855f7);
+            border: none;
+            color: white;
+            padding: 14px 40px;
+            font-family: 'Cairo', 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        /* RTL Alignment for Arabic */
+        body.rtl {
+            direction: rtl;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body.rtl .lang-btn {
+            right: auto;
+            left: 20px;
+        }
+
+        /* Scanline Effect */
+        .scanline {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15));
+            background-size: 100% 4px;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .footer .academy-brand {
+            color: var(--accent-yellow);
+            font-weight: 700;
+        }
+
+        .footer .trainer-brand {
+            color: var(--accent-pink);
+            font-weight: 700;
+        }
+
+        .footer .phone-brand {
+            color: var(--accent-green);
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: embed;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5rem; }
+            .cert-title { font-size: 1.6rem; }
+            .cert-name { font-size: 1.4rem; }
+            .cert-score-circle { width: 110px; height: 110px; }
+            .cert-score-inner { width: 90px; height: 90px; }
+            .cert-score-value { font-size: 1.6rem; }
+            .cert-footer { flex-direction: column; gap: 20px; }
+            .lang-btn { top: 10px; right: 10px; padding: 6px 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <header>
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <i class="fa-solid fa-globe"></i> <span id="langBtnText">تغيير للغة العربية</span>
+        </button>
+        <h1 id="headerTitle"><i class="fa-solid fa-terminal"></i> CYBERSECURITY BASICS - EXAM</h1>
+        <p id="headerSub">[ 15 MASTER MCQ QUESTIONS // RANDOMIZED ANSWERS ]</p>
+        <div class="academy-info">
+            <span class="academy-name">🎓 أكاديمية مستر روبوت</span> لتدريب وتعليم البرمجة والذكاء الاصطناعي<br>
+            <span class="trainer-name">👨‍🏫 المدرب: مهندس جورج ناصر</span><br>
+            <span>📞 المهندس أندرو مجدي: <span class="phone">01285529570</span></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <form id="quizForm">
+            <div id="questionsContainer"></div>
+
+            <div class="submit-container">
+                <button type="button" class="submit-btn" id="submitBtn" onclick="gradeQuiz()">
+                    <i class="fa-solid fa-check-double"></i> Submit Answers
+                </button>
+            </div>
+        </form>
+
+        <div id="result-box">
+            <h2 id="resultTitle">EXAM RESULTS</h2>
+            <div id="score-display"></div>
+            <div id="feedback-container"></div>
+
+            <!-- Certificate Section -->
+            <div class="certificate-section" id="certificateSection" style="display:none;">
+                <div id="certificate">
+                    <div class="cert-header">
+                        <div class="cert-badge">CERTIFICATE</div>
+                        <div class="cert-title">شهادة إتمام</div>
+                        <div class="cert-subtitle">CERTIFICATE OF COMPLETION</div>
+                    </div>
+
+                    <div class="cert-line"></div>
+
+                    <div class="cert-presented">تشهد أكاديمية مستر روبوت بأن</div>
+                    <div class="cert-name" id="certName">—</div>
+                    <div class="cert-description">
+                        قد أتم بنجاح اختبار <strong>أساسيات الأمن السيبراني</strong><br>
+                        Cybersecurity Basics - 15 MCQ Master Quiz
+                    </div>
+
+                    <div class="cert-score-circle" id="certScoreCircle" style="--score-percent: 0;">
+                        <div class="cert-score-inner">
+                            <div class="cert-score-value" id="certScoreValue">0%</div>
+                            <div class="cert-score-label">SCORE</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-evaluation" id="certEvaluation">—</div>
+
+                    <div class="cert-footer">
+                        <div class="cert-signature">
+                            <div class="cert-logo"><i class="fa-solid fa-robot"></i></div>
+                            <div class="sig-line"></div>
+                            <div class="sig-name">م. أندرو مجدي</div>
+                            <div class="sig-title">مؤسس الأكاديمية</div>
+                        </div>
+                        <div class="cert-signature">
+                            <div class="cert-logo"><i class="fa-solid fa-chalkboard-user"></i></div>
+                            <div class="sig-line"></div>
+                            <div class="sig-name">جورج ناصر</div>
+                            <div class="sig-title">المدرب</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-date" id="certDate"></div>
+                </div>
+
+                <button class="download-btn" onclick="downloadCertificate()">
+                    <i class="fa-solid fa-download"></i> تحميل الشهادة كصورة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="academy-brand">أكاديمية مستر روبوت</span> لتدريب وتعليم البرمجة والذكاء الاصطناعي &nbsp;|&nbsp;
+        <span class="trainer-brand">المدرب جورج ناصر</span> &nbsp;|&nbsp;
+        <span>المهندس أندرو مجدي: <span class="phone-brand">01285529570</span></span>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+
+        const quizData = [
+            // Q1 -> Answer: C
+            {
+                id: 'q1',
+                q_en: 'Q1: During a Red Team penetration testing assignment utilizing "Daisy Chaining" alongside a Zero-Day exploit, what is the correct sequence of the Cyber Kill Chain phases that an attacker must follow?',
+                q_ar: 'س1: خلال تنفيذ عملية اختبار اختراق (Red Team) واستخدام تقنية "Daisy Chaining" بالتعاون مع هجوم يوم صفر (Zero-Day)، ما هو الترتيب الصحيح لمراحل الـ Cyber Kill Chain التي يجب أن يمر بها المهاجم بالتتابع؟',
+                options_en: [
+                    'A) Gaining Access ➔ Reconnaissance ➔ Scanning ➔ Maintaining Access ➔ Covering Tracks',
+                    'B) Scanning ➔ Reconnaissance ➔ Maintaining Access ➔ Gaining Access ➔ Covering Tracks',
+                    'C) Reconnaissance ➔ Scanning ➔ Gaining Access ➔ Maintaining Access ➔ Covering Tracks',
+                    'D) Reconnaissance ➔ Gaining Access ➔ Scanning ➔ Covering Tracks ➔ Maintaining Access'
+                ],
+                options_ar: [
+                    'أ) Gaining Access ➔ Reconnaissance ➔ Scanning ➔ Maintaining Access ➔ Covering Tracks',
+                    'ب) Scanning ➔ Reconnaissance ➔ Maintaining Access ➔ Gaining Access ➔ Covering Tracks',
+                    'ج) Reconnaissance ➔ Scanning ➔ Gaining Access ➔ Maintaining Access ➔ Covering Tracks',
+                    'د) Reconnaissance ➔ Gaining Access ➔ Scanning ➔ Covering Tracks ➔ Maintaining Access'
+                ],
+                answer: 'C',
+                explanation_en: 'Reconnaissance ➔ Scanning ➔ Gaining Access ➔ Maintaining Access ➔ Covering Tracks.',
+                explanation_ar: 'الترتيب الصحيح هو جمع المعلومات ثم الفحص ثم الحصول على الوصول ثم الحفاظ عليه وأخيراً مسح الآثار.'
+            },
+            // Q2 -> Answer: A
+            {
+                id: 'q2',
+                q_en: 'Q2: In a security breach scenario where an attacker manipulated payroll records to transfer funds, the company couldn\'t prove who performed the action or prevent denial of it, and the system became totally unavailable to clients. Which security principles were violated in order?',
+                q_ar: 'س2: في سيناريو هجوم تمكن فيه المخترق من تعديل سجلات الرواتب وتحويل أموال لنفسه، وتعذر على الشركة إثبات هوية الفاعل أو منع إنكاره للعملية، وتوقف النظام عن العمل تماماً للعملاء، ما هي المبادئ الأمنية التي تم انتهاكها على الترتيب؟',
+                options_en: [
+                    'A) Integrity ➔ Non-Repudiation ➔ Availability',
+                    'B) Confidentiality ➔ Authenticity ➔ Availability',
+                    'C) Availability ➔ Integrity ➔ Non-Repudiation',
+                    'D) Non-Repudiation ➔ Confidentiality ➔ Integrity'
+                ],
+                options_ar: [
+                    'أ) Integrity ➔ Non-Repudiation ➔ Availability',
+                    'ب) Confidentiality ➔ Authenticity ➔ Availability',
+                    'ج) Availability ➔ Integrity ➔ Non-Repudiation',
+                    'د) Non-Repudiation ➔ Confidentiality ➔ Integrity'
+                ],
+                answer: 'A',
+                explanation_en: 'Integrity (records altered) ➔ Non-Repudiation (can\'t prove/deny) ➔ Availability (system down).',
+                explanation_ar: 'تعديل البيانات هو كسر للـ Integrity، عدم منع الإنكار هو كسر للـ Non-Repudiation، وتوقف السيستم هو كسر للـ Availability.'
+            },
+            // Q3 -> Answer: D
+            {
+                id: 'q3',
+                q_en: 'Q3: Applying the attack equation (Attack = Motive + Method + Vulnerability), when an attacker delivers a malicious payload leveraging an unannounced Zero-Day vulnerability to control victims remotely for large-scale attacks, what is the technical term for the software used to control the victims?',
+                q_ar: 'س3: عند تطبيق معادلة الهجوم (Attack = Motive + Method + Vulnerability)، وعندما يقوم المهاجم بإرسال كود ضار (Payload) مستغلاً ثغرة غير معلنة (Zero-Day) للسيطرة على الأجهزة الضحية عن بُعد لتنفيذ هجوم واسع النطاق، فما هو المسمى التقني للبرنامج المستخدم للتحكم بالضحايا في هذه المرحلة؟',
+                options_en: ['A) Firewall', 'B) Patch', 'C) VPN Tunnel', 'D) Bot'],
+                options_ar: ['أ) جدار حماية (Firewall)', 'ب) رقعة أمنية (Patch)', 'ج) نفق VPN', 'د) بوت (Bot)'],
+                answer: 'D',
+                explanation_en: 'A Bot is a software used to control infected victims remotely.',
+                explanation_ar: 'الـ Bot هو البرنامج المستخدم للتحكم بالأجهزة الضحية عن بُعد.'
+            },
+            // Q4 -> Answer: B
+            {
+                id: 'q4',
+                q_en: 'Q4: What is the primary focus of the "Confidentiality" principle in the CIA Triad?',
+                q_ar: 'س4: ما هو التركيز الأساسي لمبدأ "السرية" (Confidentiality) في ثلاثية CIA؟',
+                options_en: [
+                    'A) Ensuring systems are accessible 24/7',
+                    'B) Preventing unauthorized access to sensitive data',
+                    'C) Verifying that data has not been modified in transit',
+                    'D) Preventing users from denying sending a message'
+                ],
+                options_ar: [
+                    'أ) ضمان إتاحة السيستم على مدار الساعة',
+                    'ب) منع الوصول غير المصرح به للبيانات الحساسة',
+                    'ج) التأكد من عدم تغيير البيانات أثناء نقلها',
+                    'د) منع المستخدمين من إنكار إرسال رسالة'
+                ],
+                answer: 'B',
+                explanation_en: 'Confidentiality ensures that only authorized users can access the information.',
+                explanation_ar: 'السرية تضمن عدم وصول البيانات إلا للمصرح لهم فقط.'
+            },
+            // Q5 -> Answer: C
+            {
+                id: 'q5',
+                q_en: 'Q5: What defines a "Zero-Day Attack"?',
+                q_ar: 'س5: ما هو التعريف الدقيق لـ "هجوم اليوم الصفر" (Zero-Day Attack)؟',
+                options_en: [
+                    'A) An attack that takes zero seconds to execute',
+                    'B) An attack conducted on the first day of the year',
+                    'C) An attack exploiting a vulnerability before developers identify or patch it',
+                    'D) An attack that leaves zero footprints on the server'
+                ],
+                options_ar: [
+                    'أ) هجوم يستغرق صفر ثوانٍ لتنفيذه',
+                    'ب) هجوم يتم في اليوم الأول من السنة',
+                    'ج) هجوم يستغل ثغرة أمنية قبل أن يكتشفها المطور أو يصدر لها علاج',
+                    'د) هجوم لا يترك أي أثر على السيرفر'
+                ],
+                answer: 'C',
+                explanation_en: 'Zero-Day threats exploit vulnerabilities unknown to the vendor/developer.',
+                explanation_ar: 'هجوم اليوم الصفر يستغل ثغرات لم يكتشفها المطور بعد ولم يقم بسدها.'
+            },
+            // Q6 -> Answer: A
+            {
+                id: 'q6',
+                q_en: 'Q6: In the Attack Equation (Attack = Motive + Method + Vulnerability), what does "Motive" represent?',
+                q_ar: 'س6: في معادلة الهجوم (الهجوم = الدافع + الطريقة + الثغرة)، ماذا يمثل "الدافع" (Motive)؟',
+                options_en: [
+                    'A) The underlying reason or driver behind the attacker\'s intent',
+                    'B) The technical tool used to execute the hack',
+                    'C) The security flaw inside the system',
+                    'D) The malicious code delivered to the target'
+                ],
+                options_ar: [
+                    'أ) السبب الأساسي أو الحافز المحرك لنية المهاجم',
+                    'ب) الأداة التقنية المستخدمة لتنفيذ الاختراق',
+                    'ج) النقص أو الخلل الأمني داخل السيستم',
+                    'د) الكود الخبيث المرسل للهدف'
+                ],
+                answer: 'A',
+                explanation_en: 'Motive is the reason driving the attacker (e.g., financial gain, espionage).',
+                explanation_ar: 'الدافع هو السبب المحرك للمهاجم مثل الربح المالي أو الجاسوسية.'
+            },
+            // Q7 -> Answer: D
+            {
+                id: 'q7',
+                q_en: 'Q7: Which phase of the Cyber Kill Chain involves gathering information about the target without direct interaction?',
+                q_ar: 'س7: أي مرحلة من مراحل الـ Cyber Kill Chain تتضمن جمع المعلومات عن الهدف دون التفاعل المباشر معه؟',
+                options_en: ['A) Scanning', 'B) Gaining Access', 'C) Covering Tracks', 'D) Reconnaissance'],
+                options_ar: ['أ) Scanning', 'ب) Gaining Access', 'ج) Covering Tracks', 'د) Reconnaissance (الاستطلاع)'],
+                answer: 'D',
+                explanation_en: 'Reconnaissance involves passive info-gathering without directly touching the target.',
+                explanation_ar: 'مرحلة الاستطلاع (Reconnaissance) تتمثل في جمع البيانات الهادئة بدون التماس المباشر مع هدف الاختراق.'
+            },
+            // Q8 -> Answer: B
+            {
+                id: 'q8',
+                q_en: 'Q8: What is the main difference between "Reconnaissance" and "Scanning"?',
+                q_ar: 'س8: ما هو الفرق الأساسي بين مرحلتي "الاستطلاع" (Reconnaissance) و"الفحص" (Scanning)؟',
+                options_en: [
+                    'A) Scanning is passive, Reconnaissance is active',
+                    'B) Reconnaissance avoids direct interaction, while Scanning directly interacts with the target',
+                    'C) Reconnaissance modifies data, Scanning deletes files',
+                    'D) Scanning is done after gaining access, Reconnaissance is done at the end'
+                ],
+                options_ar: [
+                    'أ) الفحص يتم بشكل سلبي بينما الاستطلاع فعال ومباشر',
+                    'ب) الاستطلاع يتجنب التفاعل المباشر، بينما الفحص يتفاعل مباشرة مع الهدف لاستخراج المنافذ والخدمات',
+                    'ج) الاستطلاع يغير البيانات بينما الفحص يمسح الملفات',
+                    'د) الفحص يتم بعد الدخول والسيطرة والاستطلاع يتم في النهاية'
+                ],
+                answer: 'B',
+                explanation_en: 'Reconnaissance is passive/indirect, whereas Scanning involves active traffic sent to target ports/services.',
+                explanation_ar: 'الاستطلاع يكون بدون احتكاك مباشر بينما الفحص يرسل حزم بيانات ويتفاعل مباشرة مع منافذ الهدف.'
+            },
+            // Q9 -> Answer: C
+            {
+                id: 'q9',
+                q_en: 'Q9: What is a "Payload" in cybersecurity context?',
+                q_ar: 'س9: ما هو مفهوم "الحمولة الخبيثة" (Payload) في مجال الأمن السيبراني؟',
+                options_en: [
+                    'A) The hardware server hosting the database',
+                    'B) The network bandwith consumed by a user',
+                    'C) The malicious code designed to execute after exploiting a vulnerability',
+                    'D) The security policy created by the administrator'
+                ],
+                options_ar: [
+                    'أ) السيرفر المادي الذي يستضيف قاعدة البيانات',
+                    'ب) عرض النطاق التبادلي (Bandwidth) المستهلك بواسطة المستخدم',
+                    'ج) الكود الضار المخصص للتنفيذ بمجرد استغلال الثغرة',
+                    'د) سياسة الأمان الصادرة من مدير الشبكة'
+                ],
+                answer: 'C',
+                explanation_en: 'Payload is the actual malicious code delivered during exploitation.',
+                explanation_ar: 'الـ Payload هو الكود التنفيذي الخبيث الذي يتم تمريره واستغلاله داخل الهدف.'
+            },
+            // Q10 -> Answer: A
+            {
+                id: 'q10',
+                q_en: 'Q10: Which extended security principle ensures that a user or device identity is verified before granting system access?',
+                q_ar: 'س10: أي مبدأ أمني إضافي يضمن التحقق الإيجابي من هوية المستخدم أو الجهاز قبل منحه صلاحيات الوصول؟',
+                options_en: ['A) Authenticity', 'B) Non-Repudiation', 'C) Availability', 'D) Daisy Chaining'],
+                options_ar: ['أ) التحقق من الهوية (Authenticity)', 'ب) عدم التنصل (Non-Repudiation)', 'ج) التوافر (Availability)', 'د) التسلسل (Daisy Chaining)'],
+                answer: 'A',
+                explanation_en: 'Authenticity identifies and confirms the genuine identity of a user or system.',
+                explanation_ar: 'مبدأ Authenticity يضمن إثبات والتحقق من هوية المستخدم أو الجهاز بصرامة.'
+            },
+            // Q11 -> Answer: C
+            {
+                id: 'q11',
+                q_en: 'Q11: What is the primary purpose of the "Covering Tracks" stage in an attack methodology?',
+                q_ar: 'س11: ما هو الهدف الرئيسي من مرحلة "إخفاء الآثار" (Covering Tracks) في منهجية الهجوم؟',
+                options_en: [
+                    'A) To install hardware firewalls',
+                    'B) To increase the network upload speed',
+                    'C) To erase system logs, audit trails, and hide the attacker\'s identity',
+                    'D) To inform system administrators about the vulnerabilities'
+                ],
+                options_ar: [
+                    'أ) تركيب جدران حماية هاردوير جديدة',
+                    'ب) زيادة سرعة رفع البيانات في الشبكة',
+                    'ج) مسح سجلات النظام (Logs) وآثار النشاط لتخفي هوية المهاجم وتجنب الاكتشاف',
+                    'د) إبلاغ مدراء النظام بالثغرات المكتشفة'
+                ],
+                answer: 'C',
+                explanation_en: 'Covering Tracks involves clearing log entries and removing backdoors to evade SOC detection.',
+                explanation_ar: 'إخفاء الآثار يتضمن مسح سجلات الأحداث (Logs) وإزالة الأدوات لتجنب كشف الهوية.'
+            },
+            // Q12 -> Answer: D
+            {
+                id: 'q12',
+                q_en: 'Q12: If an attacker compromises Machine A, uses it to pivot into Machine B, and then escalates privileges on Domain Controller C, what attack process is being executed?',
+                q_ar: 'س12: إذا قام مهاجم باختراق الجهاز (A)، واستغله كمنصة للانتقال لاختراق الجهاز (B)، ثم قام بتعلية الصلاحيات للوصول إلى خادم النطاق (C)، فما هي العملية المطبقة هنا؟',
+                options_en: ['A) Zero-Day Patching', 'B) Encryption Key Exchange', 'C) Denial of Service', 'D) Daisy Chaining'],
+                options_ar: ['أ) Zero-Day Patching', 'ب) تبادل مفاتيح التشفير', 'ج) حجب الخدمة (DoS)', 'د) التسلسل الهجومي (Daisy Chaining)'],
+                answer: 'D',
+                explanation_en: 'Daisy Chaining is a sequential chain of attacks leveraging one compromised asset to reach others.',
+                explanation_ar: 'التسلسل الهجومي (Daisy Chaining) هو سلسلة هجمات متتالية للوصول لأهداف أعمق وتعلية الصلاحيات.'
+            },
+            // Q13 -> Answer: B
+            {
+                id: 'q13',
+                q_en: 'Q13: An attacker performs a Ransomware attack that encrypts files making them unreadable AND locks system files stopping services completely. Which two CIA Triad principles are directly violated?',
+                q_ar: 'س13: قام مهاجم بتنفيذ هجوم انتزاع الفدية (Ransomware) حيث قام بتشفير الملفات ومنع قراءتها، وتسبب في تعطيل خدمات النظام كلياً. أي مبدأين من ثلاثية CIA تم خرقهم بشكل مباشر؟',
+                options_en: [
+                    'A) Confidentiality & Integrity only',
+                    'B) Integrity & Availability',
+                    'C) Non-Repudiation & Authenticity',
+                    'D) Authenticity & Confidentiality'
+                ],
+                options_ar: [
+                    'أ) السرية والتكامل فقط',
+                    'ب) السلامة/التكامل (Integrity) والتوافر (Availability)',
+                    'ج) عدم التنصل والتحقق من الهوية',
+                    'د) الموثوقية والسرية'
+                ],
+                answer: 'B',
+                explanation_en: 'Encrypting/modifying file integrity without consent violates Integrity; stopping services violates Availability.',
+                explanation_ar: 'تعديل وتشفير الملفات يكسر الـ Integrity، وتوقف الخدمات وتجميد السيستم يكسر الـ Availability.'
+            },
+            // Q14 -> Answer: A
+            {
+                id: 'q14',
+                q_en: 'Q14: Why is "Maintaining Access" a critical phase for persistent threat actors after gaining initial access?',
+                q_ar: 'س14: لماذا تعتبر مرحلة "الحفاظ على الوصول" (Maintaining Access) مرحلة حاسمة للمهاجمين بعد الدخول الأولي؟',
+                options_en: [
+                    'A) To secure future reconnects via backdoors even if original vulnerability is patched or system reboots',
+                    'B) To fix system bugs for the administrator',
+                    'C) To automatically encrypt all passwords on the web',
+                    'D) To notify the threat intelligence community'
+                ],
+                options_ar: [
+                    'أ) لضمان القدرة على العودة والاتصال مجدداً (Backdoors) حتى لو تم إغلاق الثغرة الأصلية أو إعادة تشغيل الجهاز',
+                    'ب) لإصلاح أخطاء البرمجة لمسؤول النظام',
+                    'ج) لتشفير جميع الباسوردات تلقائياً على الإنترنت',
+                    'د) لإرسال إشعارات لفرق الأمن السيبراني'
+                ],
+                answer: 'A',
+                explanation_en: 'Maintaining Access establishes persistence (Backdoors, Trojans) for long-term access.',
+                explanation_ar: 'الحفاظ على الوصول يضمن زرع الأبواب الخلفية (Backdoors) والاستمرارية دون الحاجة لإعادة الاختراق من الصفر.'
+            },
+            // Q15 -> Answer: C
+            {
+                id: 'q15',
+                q_en: 'Q15: A hacker successfully intercepts an encrypted transaction, but cannot alter its content or decrypt it. However, they alter the sender signature. Which security property is failed by the receiver if they accept it as genuine?',
+                q_ar: 'س15: اعترض مهاجم معاملة مشفرة، ولم يستطع فك تشفيرها أو التعديل في متنها، ولكنه قام بتزوير التوقيع الرقمي للمرسل. إذا قبل المستلم هذه المعاملة على أنها سليمة، فأي مبدأ أمني قد فشل المستلم في التحقق منه؟',
+                options_en: ['A) Availability', 'B) Vulnerability Scanning', 'C) Authenticity', 'D) Daisy Chaining'],
+                options_ar: ['أ) التوافر (Availability)', 'ب) فحص الثغرات', 'ج) الموثوقية والتحقق من الهوية (Authenticity)', 'د) التسلسل الهجومي'],
+                answer: 'C',
+                explanation_en: 'Authenticity ensures the sender is truly who they claim to be.',
+                explanation_ar: 'فشل التحقق من التوقيع الرقمي للمرسل يعد خرقاً لمبدأ الموثوقية والتحقق من الهوية (Authenticity).'
+            }
+        ];
+
+        // اسم المتقدم (يمكن تعديله)
+        let userName = 'Student Name';
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            quizData.forEach((q, index) => {
+                const qText = currentLang === 'ar' ? q.q_ar : q.q_en;
+                const opts = currentLang === 'ar' ? q.options_ar : q.options_en;
+                const optValues = ['A', 'B', 'C', 'D'];
+
+                let optionsHTML = '';
+                opts.forEach((opt, i) => {
+                    optionsHTML += `
+                        <label class="option-label">
+                            <input type="radio" name="${q.id}" value="${optValues[i]}">
+                            <span>${opt}</span>
+                        </label>
+                    `;
+                });
+
+                container.innerHTML += `
+                    <div class="quiz-card">
+                        <div class="question-title">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span>${qText}</span>
+                        </div>
+                        <div class="options-list">
+                            ${optionsHTML}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleLanguage() {
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                document.body.classList.add('rtl');
+                document.getElementById('langBtnText').innerText = 'Switch to English';
+                document.getElementById('headerTitle').innerHTML = '<i class="fa-solid fa-terminal"></i> اختبار أساسيات الأمن السيبراني';
+                document.getElementById('headerSub').innerText = '[ 15 سؤال متدرج الصعوبة // إجابات موزعة عشوائياً ]';
+                document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> إنهاء وتسليم الإجابات';
+                document.getElementById('resultTitle').innerText = 'نتيجة الاختبار';
+            } else {
+                currentLang = 'en';
+                document.body.classList.remove('rtl');
+                document.getElementById('langBtnText').innerText = 'تغيير للغة العربية';
+                document.getElementById('headerTitle').innerHTML = '<i class="fa-solid fa-terminal"></i> CYBERSECURITY BASICS - EXAM';
+                document.getElementById('headerSub').innerText = '[ 15 MASTER MCQ QUESTIONS // RANDOMIZED ANSWERS ]';
+                document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> Submit Answers';
+                document.getElementById('resultTitle').innerText = 'EXAM RESULTS';
+            }
+            renderQuestions();
+            document.getElementById('result-box').style.display = 'none';
+            document.getElementById('certificateSection').style.display = 'none';
+        }
+
+        function getEvaluation(percentage) {
+            if (percentage >= 90) return { en: 'Excellent', ar: 'ممتاز', class: 'cert-eval-excellent' };
+            if (percentage >= 75) return { en: 'Very Good', ar: 'جيد جداً', class: 'cert-eval-good' };
+            if (percentage >= 60) return { en: 'Good', ar: 'جيد', class: 'cert-eval-average' };
+            if (percentage >= 50) return { en: 'Pass', ar: 'مقبول', class: 'cert-eval-average' };
+            return { en: 'Needs Improvement', ar: 'يحتاج تحسين', class: 'cert-eval-poor' };
+        }
+
+        function updateCertificate(score, total, percentage) {
+            // تاريخ اليوم
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // تحديث بيانات الشهادة
+            document.getElementById('certName').innerText = userName;
+            document.getElementById('certScoreValue').innerText = percentage + '%';
+            document.getElementById('certScoreCircle').style.setProperty('--score-percent', percentage);
+            document.getElementById('certDate').innerText = 'تاريخ الإصدار: ' + dateStr;
+
+            const evalData = getEvaluation(percentage);
+            const evalEl = document.getElementById('certEvaluation');
+            evalEl.innerText = currentLang === 'ar' ? evalData.ar : evalData.en;
+            evalEl.className = 'cert-evaluation ' + evalData.class;
+
+            // إظهار قسم الشهادة
+            document.getElementById('certificateSection').style.display = 'block';
+        }
+
+        function downloadCertificate() {
+            const cert = document.getElementById('certificate');
+            const btn = document.querySelector('.download-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التحميل...';
+            btn.disabled = true;
+
+            html2canvas(cert, {
+                scale: 2,
+                backgroundColor: '#0f172a',
+                useCORS: true,
+                logging: false
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'MrRobot_Certificate_' + userName.replace(/\s+/g, '_') + '.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> تم التحميل!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }).catch(err => {
+                console.error(err);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert('حدث خطأ أثناء تحميل الشهادة. حاول مرة أخرى.');
+            });
+        }
+
+        function gradeQuiz() {
+            let score = 0;
+            let total = quizData.length;
+            let feedbackHTML = '';
+
+            quizData.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="${q.id}"]:checked`);
+                const isCorrect = selected && selected.value === q.answer;
+                const exp = currentLang === 'ar' ? q.explanation_ar : q.explanation_en;
+                const qNum = idx + 1;
+
+                if (isCorrect) {
+                    score++;
+                    feedbackHTML += `
+                        <div class="feedback-item correct-fb">
+                            <strong>${currentLang === 'ar' ? 'س' : 'Q'}${qNum}: ${currentLang === 'ar' ? 'إجابة صحيحة!' : 'Correct!'}</strong> ${exp}
+                        </div>
+                    `;
+                } else {
+                    feedbackHTML += `
+                        <div class="feedback-item wrong-fb">
+                            <strong>${currentLang === 'ar' ? 'س' : 'Q'}${qNum}: ${currentLang === 'ar' ? 'إجابة خاطئة.' : 'Incorrect.'}</strong> 
+                            ${currentLang === 'ar' ? 'الإجابة الصحيحة هي' : 'The correct answer is'} <strong>${q.answer}</strong>. (${exp})
+                        </div>
+                    `;
+                }
+            });
+
+            const resultBox = document.getElementById('result-box');
+            const scoreDisplay = document.getElementById('score-display');
+            const feedbackContainer = document.getElementById('feedback-container');
+
+            const percentage = Math.round((score / total) * 100);
+            scoreDisplay.innerHTML = currentLang === 'ar' 
+                ? `النتيجة النهائية: ${score} من ${total} (${percentage}%)`
+                : `Your Score: ${score} / ${total} (${percentage}%)`;
+
+            feedbackContainer.innerHTML = feedbackHTML;
+            resultBox.style.display = 'block';
+
+            // تحديث الشهادة
+            updateCertificate(score, total, percentage);
+
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize quiz on load
+        renderQuestions();
+    </script>
+</body>
+</html>
