@@ -147,6 +147,83 @@
             padding: 0 20px;
         }
 
+        /* Student Name Input */
+        .student-name-box {
+            background: var(--card-gradient);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-name-box::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(180deg, var(--accent-yellow), var(--accent-pink));
+            border-radius: 12px 0 0 12px;
+        }
+
+        body.rtl .student-name-box::before {
+            left: auto;
+            right: 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .student-name-label {
+            display: block;
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .student-name-label i {
+            margin-right: 8px;
+            color: var(--accent-cyan);
+        }
+
+        body.rtl .student-name-label i {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+
+        #studentNameInput {
+            width: 100%;
+            padding: 14px 18px;
+            background: #0a0f1c;
+            border: 2px solid #1e293b;
+            border-radius: 8px;
+            color: var(--text-bright);
+            font-family: 'Share Tech Mono', 'Cairo', monospace;
+            font-size: 1.05rem;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        #studentNameInput:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+            background: #0d1424;
+        }
+
+        #studentNameInput::placeholder {
+            color: #475569;
+            font-style: italic;
+        }
+
+        .name-hint {
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
         .quiz-card {
             background: var(--card-gradient);
             border: 1px solid var(--border-glow);
@@ -315,13 +392,13 @@
         }
 
         #certificate {
-            width: 800px;
+            width: 850px;
             max-width: 100%;
             background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
             border: 3px solid transparent;
             border-image: linear-gradient(45deg, #06b6d4, #a855f7, #ec4899, #facc15, #06b6d4) 1;
             border-radius: 16px;
-            padding: 40px 30px;
+            padding: 45px 35px;
             position: relative;
             box-shadow: 0 0 40px rgba(6, 182, 212, 0.3), inset 0 0 60px rgba(168, 85, 247, 0.05);
             font-family: 'Cairo', sans-serif;
@@ -331,7 +408,7 @@
         #certificate::before {
             content: "";
             position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            top: 12px; left: 12px; right: 12px; bottom: 12px;
             border: 1px solid rgba(6, 182, 212, 0.3);
             border-radius: 10px;
             pointer-events: none;
@@ -359,30 +436,32 @@
             display: inline-block;
             background: linear-gradient(135deg, #06b6d4, #a855f7);
             color: white;
-            padding: 8px 25px;
+            padding: 8px 28px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            text-transform: uppercase;
         }
 
         .cert-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 900;
             background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899, #facc15);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 5px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .cert-subtitle {
             font-size: 1rem;
             color: #94a3b8;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             margin-bottom: 25px;
             text-transform: uppercase;
         }
@@ -398,40 +477,47 @@
         }
 
         .cert-presented {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #cbd5e1;
             margin-bottom: 10px;
             position: relative;
             z-index: 2;
+            letter-spacing: 1px;
         }
 
         .cert-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #f8fafc;
-            text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
             margin: 15px 0;
-            padding: 10px 30px;
+            padding: 12px 35px;
             display: inline-block;
             border-bottom: 2px solid rgba(6, 182, 212, 0.5);
             position: relative;
             z-index: 2;
-            min-width: 300px;
+            min-width: 350px;
+            letter-spacing: 1px;
         }
 
         .cert-description {
             font-size: 1rem;
             color: #cbd5e1;
-            line-height: 1.8;
-            max-width: 600px;
+            line-height: 1.9;
+            max-width: 650px;
             margin: 15px auto;
             position: relative;
             z-index: 2;
         }
 
+        .cert-description strong {
+            color: #06b6d4;
+            font-weight: 700;
+        }
+
         .cert-score-circle {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: conic-gradient(
                 #22c55e 0deg,
@@ -445,12 +531,12 @@
             margin: 20px auto;
             position: relative;
             z-index: 2;
-            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 35px rgba(34, 197, 94, 0.3);
         }
 
         .cert-score-inner {
-            width: 115px;
-            height: 115px;
+            width: 122px;
+            height: 122px;
             border-radius: 50%;
             background: #0f172a;
             display: flex;
@@ -461,7 +547,7 @@
         }
 
         .cert-score-value {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 900;
             color: #22c55e;
             line-height: 1;
@@ -471,19 +557,21 @@
         .cert-score-label {
             font-size: 0.75rem;
             color: #94a3b8;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-top: 5px;
         }
 
         .cert-evaluation {
             font-size: 1.3rem;
             font-weight: 700;
-            padding: 10px 25px;
+            padding: 10px 30px;
             border-radius: 30px;
             display: inline-block;
             margin: 10px 0 20px;
             position: relative;
             z-index: 2;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .cert-eval-excellent {
@@ -531,35 +619,39 @@
         }
 
         .cert-signature .sig-line {
-            width: 150px;
+            width: 160px;
             height: 1px;
             background: rgba(6, 182, 212, 0.5);
             margin: 0 auto 8px;
         }
 
         .cert-signature .sig-name {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #f8fafc;
             font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .cert-signature .sig-title {
             font-size: 0.75rem;
             color: #94a3b8;
             margin-top: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .cert-date {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #94a3b8;
-            margin-top: 15px;
+            margin-top: 20px;
             position: relative;
             z-index: 2;
+            letter-spacing: 1px;
         }
 
         .cert-logo {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #06b6d4;
             margin-bottom: 5px;
             text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
@@ -645,12 +737,13 @@
         @media (max-width: 768px) {
             header h1 { font-size: 1.5rem; }
             .cert-title { font-size: 1.6rem; }
-            .cert-name { font-size: 1.4rem; }
+            .cert-name { font-size: 1.4rem; min-width: 200px; padding: 10px 15px; }
             .cert-score-circle { width: 110px; height: 110px; }
             .cert-score-inner { width: 90px; height: 90px; }
             .cert-score-value { font-size: 1.6rem; }
             .cert-footer { flex-direction: column; gap: 20px; }
             .lang-btn { top: 10px; right: 10px; padding: 6px 10px; font-size: 0.8rem; }
+            .cert-evaluation { font-size: 1rem; padding: 8px 20px; }
         }
     </style>
 </head>
@@ -665,14 +758,31 @@
         <h1 id="headerTitle"><i class="fa-solid fa-terminal"></i> CYBERSECURITY BASICS - EXAM</h1>
         <p id="headerSub">[ 15 MASTER MCQ QUESTIONS // RANDOMIZED ANSWERS ]</p>
         <div class="academy-info">
-            <span class="academy-name">🎓 أكاديمية مستر روبوت</span> لتدريب وتعليم البرمجة والذكاء الاصطناعي<br>
-            <span class="trainer-name">👨‍🏫 المدرب: مهندس جورج ناصر</span><br>
-            <span>📞 المهندس أندرو مجدي: <span class="phone">01285529570</span></span>
+            <span class="academy-name">🎓 Mr. Robot Academy</span> for Programming & AI Training<br>
+            <span class="trainer-name">👨‍🏫 Trainer: George Nasser</span><br>
+            <span>📞 Eng. Andrew Magdy: <span class="phone">01285529570</span></span>
         </div>
     </header>
 
     <div class="container">
         <form id="quizForm">
+            <!-- Student Name Input -->
+            <div class="student-name-box">
+                <label class="student-name-label" for="studentNameInput">
+                    <i class="fa-solid fa-user-graduate"></i> <span id="nameLabelText">Enter Your Full Name (will appear on the certificate)</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="studentNameInput" 
+                    placeholder="e.g. John Doe" 
+                    maxlength="50"
+                    autocomplete="off"
+                >
+                <div class="name-hint" id="nameHint">
+                    <i class="fa-solid fa-circle-info"></i> This name will be displayed on your certificate of completion.
+                </div>
+            </div>
+
             <div id="questionsContainer"></div>
 
             <div class="submit-container">
@@ -691,18 +801,19 @@
             <div class="certificate-section" id="certificateSection" style="display:none;">
                 <div id="certificate">
                     <div class="cert-header">
-                        <div class="cert-badge">CERTIFICATE</div>
-                        <div class="cert-title">شهادة إتمام</div>
-                        <div class="cert-subtitle">CERTIFICATE OF COMPLETION</div>
+                        <div class="cert-badge">Certificate</div>
+                        <div class="cert-title">Certificate of Completion</div>
+                        <div class="cert-subtitle">Achievement Award</div>
                     </div>
 
                     <div class="cert-line"></div>
 
-                    <div class="cert-presented">تشهد أكاديمية مستر روبوت بأن</div>
+                    <div class="cert-presented">This is to certify that</div>
                     <div class="cert-name" id="certName">—</div>
                     <div class="cert-description">
-                        قد أتم بنجاح اختبار <strong>أساسيات الأمن السيبراني</strong><br>
-                        Cybersecurity Basics - 15 MCQ Master Quiz
+                        has successfully completed the<br>
+                        <strong>Cybersecurity Basics - 15 MCQ Master Quiz</strong><br>
+                        demonstrating knowledge and understanding of cybersecurity fundamentals.
                     </div>
 
                     <div class="cert-score-circle" id="certScoreCircle" style="--score-percent: 0;">
@@ -718,14 +829,14 @@
                         <div class="cert-signature">
                             <div class="cert-logo"><i class="fa-solid fa-robot"></i></div>
                             <div class="sig-line"></div>
-                            <div class="sig-name">م. أندرو مجدي</div>
-                            <div class="sig-title">مؤسس الأكاديمية</div>
+                            <div class="sig-name">Eng. Andrew Magdy</div>
+                            <div class="sig-title">Academy Founder</div>
                         </div>
                         <div class="cert-signature">
                             <div class="cert-logo"><i class="fa-solid fa-chalkboard-user"></i></div>
                             <div class="sig-line"></div>
-                            <div class="sig-name">جورج ناصر</div>
-                            <div class="sig-title">المدرب</div>
+                            <div class="sig-name">George Nasser</div>
+                            <div class="sig-title">Instructor</div>
                         </div>
                     </div>
 
@@ -733,16 +844,16 @@
                 </div>
 
                 <button class="download-btn" onclick="downloadCertificate()">
-                    <i class="fa-solid fa-download"></i> تحميل الشهادة كصورة
+                    <i class="fa-solid fa-download"></i> Download Certificate as Image
                 </button>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <span class="academy-brand">أكاديمية مستر روبوت</span> لتدريب وتعليم البرمجة والذكاء الاصطناعي &nbsp;|&nbsp;
-        <span class="trainer-brand">المدرب جورج ناصر</span> &nbsp;|&nbsp;
-        <span>المهندس أندرو مجدي: <span class="phone-brand">01285529570</span></span>
+        <span class="academy-brand">Mr. Robot Academy</span> for Programming & AI Training &nbsp;|&nbsp;
+        <span class="trainer-brand">Trainer: George Nasser</span> &nbsp;|&nbsp;
+        <span>Eng. Andrew Magdy: <span class="phone-brand">01285529570</span></span>
     </div>
 
     <script>
@@ -1016,9 +1127,6 @@
             }
         ];
 
-        // اسم المتقدم (يمكن تعديله)
-        let userName = 'Student Name';
-
         function renderQuestions() {
             const container = document.getElementById('questionsContainer');
             container.innerHTML = '';
@@ -1061,6 +1169,18 @@
                 document.getElementById('headerSub').innerText = '[ 15 سؤال متدرج الصعوبة // إجابات موزعة عشوائياً ]';
                 document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> إنهاء وتسليم الإجابات';
                 document.getElementById('resultTitle').innerText = 'نتيجة الاختبار';
+                document.getElementById('nameLabelText').innerText = 'أدخل اسمك الكامل (سيظهر على الشهادة)';
+                document.getElementById('studentNameInput').placeholder = 'مثال: أحمد محمد';
+                document.getElementById('nameHint').innerHTML = '<i class="fa-solid fa-circle-info"></i> هذا الاسم سيظهر على شهادة إتمام الاختبار.';
+                document.querySelector('.cert-badge').innerText = 'Certificate';
+                document.querySelector('.cert-title').innerText = 'Certificate of Completion';
+                document.querySelector('.cert-subtitle').innerText = 'Achievement Award';
+                document.querySelector('.cert-presented').innerText = 'This is to certify that';
+                document.querySelector('.cert-description').innerHTML = 'has successfully completed the<br><strong>Cybersecurity Basics - 15 MCQ Master Quiz</strong><br>demonstrating knowledge and understanding of cybersecurity fundamentals.';
+                document.querySelector('.cert-score-label').innerText = 'SCORE';
+                document.querySelectorAll('.sig-title')[0].innerText = 'Academy Founder';
+                document.querySelectorAll('.sig-title')[1].innerText = 'Instructor';
+                document.querySelector('.download-btn').innerHTML = '<i class="fa-solid fa-download"></i> Download Certificate as Image';
             } else {
                 currentLang = 'en';
                 document.body.classList.remove('rtl');
@@ -1069,6 +1189,18 @@
                 document.getElementById('headerSub').innerText = '[ 15 MASTER MCQ QUESTIONS // RANDOMIZED ANSWERS ]';
                 document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> Submit Answers';
                 document.getElementById('resultTitle').innerText = 'EXAM RESULTS';
+                document.getElementById('nameLabelText').innerText = 'Enter Your Full Name (will appear on the certificate)';
+                document.getElementById('studentNameInput').placeholder = 'e.g. John Doe';
+                document.getElementById('nameHint').innerHTML = '<i class="fa-solid fa-circle-info"></i> This name will be displayed on your certificate of completion.';
+                document.querySelector('.cert-badge').innerText = 'Certificate';
+                document.querySelector('.cert-title').innerText = 'Certificate of Completion';
+                document.querySelector('.cert-subtitle').innerText = 'Achievement Award';
+                document.querySelector('.cert-presented').innerText = 'This is to certify that';
+                document.querySelector('.cert-description').innerHTML = 'has successfully completed the<br><strong>Cybersecurity Basics - 15 MCQ Master Quiz</strong><br>demonstrating knowledge and understanding of cybersecurity fundamentals.';
+                document.querySelector('.cert-score-label').innerText = 'SCORE';
+                document.querySelectorAll('.sig-title')[0].innerText = 'Academy Founder';
+                document.querySelectorAll('.sig-title')[1].innerText = 'Instructor';
+                document.querySelector('.download-btn').innerHTML = '<i class="fa-solid fa-download"></i> Download Certificate as Image';
             }
             renderQuestions();
             document.getElementById('result-box').style.display = 'none';
@@ -1076,30 +1208,38 @@
         }
 
         function getEvaluation(percentage) {
-            if (percentage >= 90) return { en: 'Excellent', ar: 'ممتاز', class: 'cert-eval-excellent' };
-            if (percentage >= 75) return { en: 'Very Good', ar: 'جيد جداً', class: 'cert-eval-good' };
-            if (percentage >= 60) return { en: 'Good', ar: 'جيد', class: 'cert-eval-average' };
-            if (percentage >= 50) return { en: 'Pass', ar: 'مقبول', class: 'cert-eval-average' };
-            return { en: 'Needs Improvement', ar: 'يحتاج تحسين', class: 'cert-eval-poor' };
+            if (percentage >= 90) return { text: 'EXCELLENT', class: 'cert-eval-excellent' };
+            if (percentage >= 75) return { text: 'VERY GOOD', class: 'cert-eval-good' };
+            if (percentage >= 60) return { text: 'GOOD', class: 'cert-eval-average' };
+            if (percentage >= 50) return { text: 'PASS', class: 'cert-eval-average' };
+            return { text: 'NEEDS IMPROVEMENT', class: 'cert-eval-poor' };
         }
 
         function updateCertificate(score, total, percentage) {
-            // تاريخ اليوم
-            const today = new Date();
-            const dateStr = today.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+            // Get student name
+            const nameInput = document.getElementById('studentNameInput');
+            let studentName = nameInput.value.trim();
 
-            // تحديث بيانات الشهادة
-            document.getElementById('certName').innerText = userName;
+            if (!studentName) {
+                studentName = currentLang === 'ar' ? 'طالب مجهول' : 'Anonymous Student';
+            }
+
+            // Date
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // Update certificate data
+            document.getElementById('certName').innerText = studentName;
             document.getElementById('certScoreValue').innerText = percentage + '%';
             document.getElementById('certScoreCircle').style.setProperty('--score-percent', percentage);
-            document.getElementById('certDate').innerText = 'تاريخ الإصدار: ' + dateStr;
+            document.getElementById('certDate').innerText = 'Issued on: ' + dateStr;
 
             const evalData = getEvaluation(percentage);
             const evalEl = document.getElementById('certEvaluation');
-            evalEl.innerText = currentLang === 'ar' ? evalData.ar : evalData.en;
+            evalEl.innerText = evalData.text;
             evalEl.className = 'cert-evaluation ' + evalData.class;
 
-            // إظهار قسم الشهادة
+            // Show certificate section
             document.getElementById('certificateSection').style.display = 'block';
         }
 
@@ -1107,8 +1247,12 @@
             const cert = document.getElementById('certificate');
             const btn = document.querySelector('.download-btn');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التحميل...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Downloading...';
             btn.disabled = true;
+
+            const nameInput = document.getElementById('studentNameInput');
+            let studentName = nameInput.value.trim() || 'Student';
+            const safeName = studentName.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_');
 
             html2canvas(cert, {
                 scale: 2,
@@ -1117,11 +1261,11 @@
                 logging: false
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'MrRobot_Certificate_' + userName.replace(/\s+/g, '_') + '.png';
+                link.download = 'MrRobot_Certificate_' + safeName + '.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
 
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> تم التحميل!';
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Downloaded!';
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
@@ -1130,11 +1274,28 @@
                 console.error(err);
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                alert('حدث خطأ أثناء تحميل الشهادة. حاول مرة أخرى.');
+                alert('Error downloading certificate. Please try again.');
             });
         }
 
         function gradeQuiz() {
+            // Check if name is entered
+            const nameInput = document.getElementById('studentNameInput');
+            if (!nameInput.value.trim()) {
+                const msg = currentLang === 'ar' 
+                    ? 'الرجاء إدخال اسمك الكامل قبل تسليم الاختبار.' 
+                    : 'Please enter your full name before submitting the quiz.';
+                alert(msg);
+                nameInput.focus();
+                nameInput.style.borderColor = '#ef4444';
+                nameInput.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.4)';
+                setTimeout(() => {
+                    nameInput.style.borderColor = '#1e293b';
+                    nameInput.style.boxShadow = 'none';
+                }, 2000);
+                return;
+            }
+
             let score = 0;
             let total = quizData.length;
             let feedbackHTML = '';
@@ -1174,7 +1335,7 @@
             feedbackContainer.innerHTML = feedbackHTML;
             resultBox.style.display = 'block';
 
-            // تحديث الشهادة
+            // Update certificate
             updateCertificate(score, total, percentage);
 
             resultBox.scrollIntoView({ behavior: 'smooth' });
